@@ -37,9 +37,19 @@
         <hr>
         <div class="d-flex align-content-center py-2 px-4 bg-white rounded-3 border">
             <div class="bi-house-fill me-3 fs-1"></div>
-                <h4 class="mb-0">Well done! this is {{ $halamanJudul }}.</h4>
+                <h4 class="mb-0">Selamat Datang Di Halaman {{ $halamanJudul }}.</h4>
           </div>
+          <br>
+          <div class="d-flex justify-content-center py-4 px-4 bg-white rounded-3 border ">
+            <div class="card " style="width: 20rem;">
+                <img src="{{Vite::asset('resources/images/bg2.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">Halo Perkenalkan nama saya iqbal musyaffa yusa bbih lillah biasanya dipanggil iqbal saya berumur 21 tahun saya seorang yang menyukai tentang teknologi</p>
+                </div>
+              </div>
+        </div>
       </div>
+
     @vite('resources/js/app.js')
 </body>
 </html>
