@@ -20,7 +20,7 @@
                 <a class="nav-link active text-white" aria-current="page" href="{{ route('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-white" href="#">Data Barang</a>
+                <a class="nav-link active text-white" href="{{ route('databarang.index') }}">Data Barang</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-white" href="#">Daftar Barang</a>
