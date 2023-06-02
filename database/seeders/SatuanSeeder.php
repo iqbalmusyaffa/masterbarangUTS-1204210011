@@ -20,14 +20,14 @@ class SatuanSeeder extends Seeder
             'dekripsi' => 'kilogram'
         ],
         [
-            'kode_satuan' => 'KG',
-            'nama_satuan' => 'kilogram',
-            'dekripsi' => 'kilogram'
+            'kode_satuan' => 'G',
+            'nama_satuan' => 'Gram',
+            'dekripsi' => 'Gram'
         ],
         [
-            'kode_satuan' => 'KG',
-            'nama_satuan' => 'kilogram',
-            'dekripsi' => 'kilogram'
+            'kode_satuan' => 'Rm',
+            'nama_satuan' => 'Rim',
+            'dekripsi' => 'Rim'
         ],
     ]);
     }

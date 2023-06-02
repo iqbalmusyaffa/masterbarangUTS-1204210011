@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Databarang;
 use Illuminate\Http\Request;
 
 class DatabarangController extends Controller
@@ -13,7 +14,11 @@ class DatabarangController extends Controller
     {
         $halamanJudul = 'Data Barang';
 
-        return view('data.index',['halamanJudul' => $halamanJudul]);
+        $databarangs = Databarang::all();
+
+        return view('databarangs.index',['halamanJudul' => $halamanJudul, 'databarangs' => $databarangs
+
+    ]);
     }
 
     /**

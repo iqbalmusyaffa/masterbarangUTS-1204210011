@@ -21,5 +21,5 @@ Route::get('welcome', [HomeController::class, 'index'])->name('home');
 
 Route::get('profil', ProfileController::class)->name('profil');
 
-Route::resource('databarang', DatabarangController::class);
+Route::resource('databarangs', DatabarangController::class);
 

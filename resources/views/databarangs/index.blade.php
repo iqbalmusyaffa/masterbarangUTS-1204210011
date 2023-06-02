@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-black">
         <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">BarangKuy</a>
+          <a class="navbar-brand text-white" href="{{ route('home') }}">BarangKuy</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -20,7 +20,7 @@
                 <a class="nav-link active text-white" aria-current="page" href="{{ route('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-white" href="{{ route('databarang.index') }}">Data Barang</a>
+                <a class="nav-link active text-white" href="{{ route('databarangs.index') }}">Data Barang</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-white" href="#">Daftar Barang</a>
@@ -64,12 +64,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($databarangs as $databarang)
                     <tr>
-                        <td>Purnama</td>
-                        <td>Anaking</td>
-                        <td>purnama.anaking@gmail.com</td>
-                        <td>20</td>
-                        <td>pcs</td>
+                        <td>{{ $databarang->kode_barang }}</td>
+                        <td>{{ $databarang->nama_barang }}</td>
+                        <td>{{ $databarang->harga_barang }}</td>
+                        <td>{{ $databarang->deskripsi_barang }}</td>
+                        <td>{{ $databarang->satuan_id }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
@@ -85,53 +86,11 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Adzanil</td>
-                        <td>Rachmadhi</td>
-                        <td>adzanil.rachmadhi@gmail.com</td>
-                        <td>25</td>
-                        <td>pcs</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
-                                <a href="" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-
-                                <div>
-                                    <form action="" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Berlian</td>
-                        <td>Rahmy</td>
-                        <td>berlian.rahmy@gmail.com</td>
-                        <td>23</td>
-                        <td>pcs</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
-                                <a href="" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-
-                                <div>
-                                    <form action="" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
     @vite('resources/js/app.js')
 </body>
 </html>
