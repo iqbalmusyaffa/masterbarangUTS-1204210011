@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Satuan extends Model
 {
     use HasFactory;
-    public function satuans()
+    public function databarang()
     {
         return $this->hasMany(Databarang::class);
     }

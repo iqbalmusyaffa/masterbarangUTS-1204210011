@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Databarang;
+use App\Models\Satuan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DatabarangController extends Controller
 {
@@ -26,7 +28,11 @@ class DatabarangController extends Controller
      */
     public function create()
     {
-        //
+        $halamanJudul = 'Data Barang';
+
+        $satuans = Satuan::all();
+
+        return view('databarangs.create', compact('halamanJudul','satuans'));
     }
 
     /**
@@ -34,7 +40,31 @@ class DatabarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => ':Attribute harus diisi.',
+            'nama_barang' => 'Isi :attribute dengan format yang benar',
+            'numeric' => 'Isi :attribute dengan angka'
+        ];
+        $validator = Validator::make($request->all(), [
+            'kode_barang' => 'required|numeric',
+            'nama_barang' => 'required',
+            'harga_barang' => 'required|numeric',
+            'deskripsi_barang' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        //insert
+        $databarang = New Databarang;
+        $databarang->kode_barang = $request->kode_barang;
+        $databarang->nama_barang = $request->nama_barang;
+        $databarang->harga_barang = $request->harga_barang;
+        $databarang->deskripsi_barang = $request->deskripsi_barang;
+        $databarang->satuan_id = $request->satuan;
+        $databarang->save();
+        return redirect()->route('databarangs.index');
     }
 
     /**

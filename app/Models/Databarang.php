@@ -9,7 +9,7 @@ class Databarang extends Model
 {
     use HasFactory;
 
-    public function databarangs()
+    public function satuan()
     {
         return $this->belongsTo(Satuan::class);
     }
