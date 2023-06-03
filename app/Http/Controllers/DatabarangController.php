@@ -72,7 +72,12 @@ class DatabarangController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $halamanJudul = 'Data Barang show';
+
+        $databarang= Databarang::find($id);
+
+        return view('databarangs.show', compact('halamanJudul','databarang'));
+
     }
 
     /**
@@ -80,15 +85,44 @@ class DatabarangController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $halamanJudul = 'Data Barang edit';
+
+        $databarang= Databarang::find($id);
+        $satuans = Satuan::all();
+
+        return view('databarangs.edit', compact('halamanJudul','databarang','satuans'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
-        //
+        $messages = [
+            'required' => ':Attribute harus diisi.',
+            'nama_barang' => 'Isi :attribute dengan format yang benar',
+            'numeric' => 'Isi :attribute dengan angka'
+        ];
+        $validator = Validator::make($request->all(), [
+            'kode_barang' => 'required|numeric',
+            'nama_barang' => 'required',
+            'harga_barang' => 'required|numeric',
+            'deskripsi_barang' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        //insert
+        $databarang = Databarang::find($id);
+        $databarang->kode_barang = $request->kode_barang;
+        $databarang->nama_barang = $request->nama_barang;
+        $databarang->harga_barang = $request->harga_barang;
+        $databarang->deskripsi_barang = $request->deskripsi_barang;
+        $databarang->satuan_id = $request->satuan;
+        $databarang->save();
+        return redirect()->route('databarangs.index');
     }
 
     /**
@@ -96,6 +130,8 @@ class DatabarangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Databarang::find($id)->delete();
+
+        return redirect()->route('databarangs.index');
     }
 }

@@ -41,7 +41,9 @@
     </div>
 
     <div class="container-sm mt-5">
-        <form action="{{ route('databarangs.store') }}" method="POST">
+        <form action="{{ route('databarangs.update',['databarang' => $databarang->id]) }}" method="POST">
+            <input type="hidden" name="databarang_id" id="databarang_id" value="{{ $databarang->databarang_id }}">
+            @method('put')
             @csrf
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
@@ -63,27 +65,27 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="kode_barang" class="form-label">Kode Barang</label>
-                            <input class="form-control" type="number" name="kode_barang" id="kode_barang" value="{{ old('kode_barang') }}" placeholder="Enter kode barang">
+                            <input class="form-control @error('kode_barang') is-invalid @enderror"  type="number" name="kode_barang" id="kode_barang" value="{{ $errors->any() ? old('kode_barang') : $databarang->kode_barang }}" placeholder="Enter kode barang">
                             @error('kode_barang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                         <div class="col-md-6">
                             <label for="nama_barang" class="form-label">Nama Barang</label>
-                            <input class="form-control" type="text" name="nama_barang" id="nama_barang" value="{{ old('nama_barang') }}" placeholder="Enter nama barang">
+                            <input class="form-control @error('nama_barang') is-invalid @enderror" type="text" name="nama_barang" id="nama_barang" value="{{ $errors->any() ? old('nama_barang') :$databarang->nama_barang }}" placeholder="Enter nama barang">
                             @error('nama_barang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="harga_barang" class="form-label">Harga Barang</label>
-                            <input class="form-control" type="number" name="harga_barang" id="harga_barang" value="{{ old('harga_barang') }}" placeholder="Enter harga_barang">
+                            <input class="form-control @error('harga_barang') is-invalid @enderror" type="number" name="harga_barang" id="harga_barang" value="{{ $errors->any() ? old('harga_barang')  :$databarang->harga_barang }}" placeholder="Enter harga_barang">
                             @error('harga_barang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="deskripsi_barang"  name="deskripsi_barang" id="deskripsi_barang" style="height: 100px" >{{ old('deskripsi_barang') }}</textarea>
+                            <textarea class="form-control @error('deskripsi_barang') is-invalid @enderror" placeholder="deskripsi_barang"  name="deskripsi_barang" id="deskripsi_barang" style="height: 100px" >{{ $errors->any() ? old('deskripsi_barang') :$databarang->deskripsi_barang }}</textarea>
                             <label for="deskripsi_barang">Deskripsi Barang</label>
                             @error('deskripsi_barang')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -93,7 +95,7 @@
                             <label for="satuan" class="form-label">Satuan</label>
                             <select name="satuan" id="satuan" class="form-select">
                                 @foreach ($satuans as $satuan)
-                                <option value="{{ $satuan->id }}" {{ old('satuan') == $satuan->id ?'selected' : '' }}>{{ $satuan->kode_satuan.' -'.$satuan->nama_satuan }}</option>
+                                <option value="{{ $satuan->id }}" {{$databarang->satuan_id  == $satuan->id ?'selected' : '' }}>{{ $satuan->kode_satuan.' -'.$satuan->nama_satuan }}</option>
                                 @endforeach
                             </select>
                             @error('satuan')
