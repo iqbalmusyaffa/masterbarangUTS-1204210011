@@ -49,7 +49,7 @@
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2">
-                    <a href="{{ route('databarangs.create') }}" class="btn btn-primary">Tambah Data Barang</a>
+                    <a href="{{ route('datasatuans.create') }}" class="btn btn-primary">Tambah Data Satuan</a>
                 </div>
             </div>
         </div>
@@ -58,29 +58,25 @@
             <table class="table table-hover table-fixed">
                 <thead>
                     <tr>
-                        <th>Kode Barang</th>
-                        <th>Nama Barang</th>
-                        <th>Harga Barang</th>
-                        <th>Deskripsi Barang</th>
-                        <th>Satuan Barang</th>
+                        <th>Kode Satuan</th>
+                        <th>Nama Satuan</th>
+                        <th>Deskripsi Satuan</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($databarangs as $databarang)
+                    @foreach ($satuans as $datasatuan)
                     <tr>
-                        <td>{{ $databarang->kode_barang }}</td>
-                        <td>{{ $databarang->nama_barang }}</td>
-                        <td>{{ 'Rp'.'.'.($databarang->harga_barang) }}</td>
-                        <td>{{ $databarang->deskripsi_barang }}</td>
-                        <td>{{ $databarang->satuan->nama_satuan }}</td>
+                        <td>{{ $datasatuan->kode_satuan }}</td>
+                        <td>{{ $datasatuan->nama_satuan }}</td>
+                        <td>{{ $datasatuan->dekripsi }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('databarangs.show', ['databarang'=>$databarang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
-                                <a href="{{ route('databarangs.edit', ['databarang'=>$databarang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                <a href="{{ route('datasatuans.show', ['datasatuan'=>$datasatuan->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
+                                <a href="{{ route('datasatuans.edit', ['datasatuan'=>$datasatuan->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
 
                                 <div>
-                                    <form action="{{ route('databarangs.destroy',['databarang' =>$databarang->id]) }}" method="POST">
+                                    <form action="{{ route('datasatuans.destroy',['datasatuan' =>$datasatuan->id]) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>

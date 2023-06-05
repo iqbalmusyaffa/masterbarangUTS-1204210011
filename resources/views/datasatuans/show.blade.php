@@ -8,7 +8,7 @@
     @vite('resources/sass/app.scss')
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-black">
+    <nav class="navbar navbar-expand-lg bg-black fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="{{ route('home') }}">BarangKuy</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,23 +36,43 @@
         </div>
       </nav>
       <div class="container mt-5">
-        <h3>{{ $halamanJudul }}</h3>
-        <hr>
-        <div class="d-flex align-content-center py-2 px-4 bg-white rounded-3 border">
-            <div class="bi-house-fill me-3 fs-1"></div>
-                <h4 class="mb-0">Selamat Datang Di Halaman {{ $halamanJudul }}.</h4>
-          </div>
-          <br>
-          <div class="d-flex justify-content-center py-4 px-4 bg-white rounded-3 border ">
-            <div class="card " style="width: 20rem;">
-                <img src="{{Vite::asset('resources/images/bg2.png') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">Halo Perkenalkan nama saya iqbal musyaffa yusa bbih lillah biasanya dipanggil iqbal saya berumur 21 tahun saya seorang yang menyukai tentang teknologi</p>
-                </div>
-              </div>
-        </div>
+      <hr>
+      <div class="d-flex align-content-center py-2 px-4 bg-white rounded-3 border">
+        <div class="bi-house-fill me-3 fs-1"></div>
+            <h4 class="mb-0">Selamat Datang Di Halaman {{ $halamanJudul }}.</h4>
       </div>
-
+    </div>
+    <div class="container-sm my-5">
+        <div class="row justify-content-center">
+            <div class="p-5 bg-light rounded-3 col-xl-4 border">
+                <div class="mb-3 text-center">
+                    <i class="bi-person-circle fs-1"></i>
+                    <h4>Detail Data Barang</h4>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="kode_satuan" class="form-label">Kode Satuan</label>
+                        <h5>{{ $satuans->kode_satuan }}</h5>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="nama_satuan" class="form-label">Nama Satuan</label>
+                        <h5>{{ $satuans->nama_satuan }}</h5>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <h5>{{ $satuans->dekripsi }}</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 d-grid">
+                        <a href="{{ route('datasatuans.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @vite('resources/js/app.js')
 </body>
 </html>

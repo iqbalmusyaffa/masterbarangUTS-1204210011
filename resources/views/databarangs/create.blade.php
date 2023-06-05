@@ -23,6 +23,9 @@
                 <a class="nav-link active text-white" href="{{ route('databarangs.index') }}">Data Barang</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link active text-white" href="{{ route('datasatuans.index') }}">Data Satuan</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active text-white" href="#">Daftar Barang</a>
               </li>
               <li class="nav-item">
@@ -77,7 +80,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="harga_barang" class="form-label">Harga Barang</label>
-                            <input class="form-control" type="number" name="harga_barang" id="harga_barang" value="{{ old('harga_barang') }}" placeholder="Enter harga_barang">
+                            <input class="form-control" type="number" name="harga_barang" id="harga_barang" value="{{ old('harga_barang') }}" placeholder="Enter harga_barang" type-currency="IDR">
                             @error('harga_barang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

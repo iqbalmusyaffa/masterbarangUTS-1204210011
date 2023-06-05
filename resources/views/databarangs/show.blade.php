@@ -23,6 +23,9 @@
                 <a class="nav-link active text-white" href="{{ route('databarangs.index') }}">Data Barang</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link active text-white" href="{{ route('datasatuans.index') }}">Data Satuan</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active text-white" href="#">Daftar Barang</a>
               </li>
               <li class="nav-item">
