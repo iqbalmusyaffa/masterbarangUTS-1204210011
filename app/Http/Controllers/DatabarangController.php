@@ -43,13 +43,14 @@ class DatabarangController extends Controller
         $messages = [
             'required' => ':Attribute harus diisi.',
             'nama_barang' => 'Isi :attribute dengan format yang benar',
-            'numeric' => 'Isi :attribute dengan angka'
+            'numeric' => 'Isi :attribute dengan angka',
+            'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
-            'kode_barang' => 'required|numeric',
+            'kode_barang' => 'required|regex:/^[A-Z]+$/',
             'nama_barang' => 'required',
             'harga_barang' => 'required|numeric',
-            'deskripsi_barang' => 'required',
+            'deskripsi_barang' => 'required'
         ], $messages);
 
         if ($validator->fails()) {
@@ -101,13 +102,14 @@ class DatabarangController extends Controller
         $messages = [
             'required' => ':Attribute harus diisi.',
             'nama_barang' => 'Isi :attribute dengan format yang benar',
-            'numeric' => 'Isi :attribute dengan angka'
+            'numeric' => 'Isi :attribute dengan angka',
+            'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
-            'kode_barang' => 'required|numeric',
+            'kode_barang' => 'required|regex:/^[A-Z]+$/',
             'nama_barang' => 'required',
             'harga_barang' => 'required|numeric',
-            'deskripsi_barang' => 'required',
+            'deskripsi_barang' => 'required'
         ], $messages);
 
         if ($validator->fails()) {

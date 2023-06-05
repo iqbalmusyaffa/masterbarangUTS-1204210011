@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="kode_barang" class="form-label">Kode Barang</label>
-                            <input class="form-control @error('kode_barang') is-invalid @enderror"  type="number" name="kode_barang" id="kode_barang" value="{{ $errors->any() ? old('kode_barang') : $databarang->kode_barang }}" placeholder="Enter kode barang">
+                            <input class="form-control @error('kode_barang') is-invalid @enderror"  type="text" name="kode_barang" id="kode_barang" value="{{ $errors->any() ? old('kode_barang') : $databarang->kode_barang }}" placeholder="Enter kode barang">
                             @error('kode_barang')
                             <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

@@ -41,12 +41,13 @@ class DatasatuanController extends Controller
         $messages = [
             'required' => ':Attribute harus diisi.',
             'nama_barang' => 'Isi :attribute dengan format yang benar',
-            'numeric' => 'Isi :attribute dengan angka'
+            'numeric' => 'Isi :attribute dengan angka',
+            'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
-            'kode_satuan' => 'required',
+            'kode_satuan' => 'required|regex:/^[A-Z]+$/',
             'nama_satuan' => 'required',
-            'dekripsi' => 'required',
+            'dekripsi' => 'required'
         ], $messages);
 
         if ($validator->fails()) {
@@ -95,12 +96,13 @@ class DatasatuanController extends Controller
         $messages = [
             'required' => ':Attribute harus diisi.',
             'nama_satuan' => 'Isi :attribute dengan format yang benar',
-            'numeric' => 'Isi :attribute dengan angka'
+            'numeric' => 'Isi :attribute dengan angka',
+            'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
-            'kode_satuan' => 'required',
+            'kode_satuan' => 'required|regex:/^[A-Z]+$/',
             'nama_satuan' => 'required',
-            'dekripsi' => 'required',
+            'dekripsi' => 'required'
         ], $messages);
 
         if ($validator->fails()) {

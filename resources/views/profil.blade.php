@@ -19,14 +19,16 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Nama : Iqbal Musyaffa Yusa Bbih Lillah</li>
+                  <li class="list-group-item">Tempat-Tanggal Lahir  :  Banyuwangi 17 Mei 2002</li>
+                  <li class="list-group-item">Hobi  :  Menonton film</li>
                   <li class="list-group-item">Nim : 1204210011</li>
                   <li class="list-group-item">Prodi : Sistem Informasi</li>
                 </ul>
                 <div class="card-body">
-                    <a class="icon-link" href="#">
+                    <a class="icon-link" href="https://www.instagram.com/iqbal_musyaffa78/">
                         <i class="bi bi-instagram me-3 fs-1"></i>
                       </a>
-                      <a class="icon-link" href="#">
+                      <a class="icon-link" href="https://github.com/iqbalmusyaffa">
                         <i class="bi bi-github me-3 fs-1"></i>
                       </a>
                 </div>

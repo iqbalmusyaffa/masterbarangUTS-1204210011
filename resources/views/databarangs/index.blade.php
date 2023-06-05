@@ -40,20 +40,7 @@
                         <td>{{ 'Rp'.'.'.($databarang->harga_barang) }}</td>
                         <td>{{ $databarang->deskripsi_barang }}</td>
                         <td>{{ $databarang->satuan->nama_satuan }}</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="{{ route('databarangs.show', ['databarang'=>$databarang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
-                                <a href="{{ route('databarangs.edit', ['databarang'=>$databarang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-
-                                <div>
-                                    <form action="{{ route('databarangs.destroy',['databarang' =>$databarang->id]) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
+                        <td>@include('databarangs.actions')</td>
                     </tr>
                     @endforeach
                 </tbody>
